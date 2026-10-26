@@ -26,7 +26,7 @@ def model():
     return joblib.load(MODEL_PATH)
 
 def test_model_loads(model):
-    assert model is None
+    assert model is not None
 
 def test_valid_sample_prediction(model):
     sample = pd.DataFrame([{
