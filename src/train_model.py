@@ -41,10 +41,7 @@ def train_and_evaluate():
 
     model = Pipeline([
         ("scaler", StandardScaler()),
-        ("classifier", RandomForestClassifier(
-            n_estimators=100,
-            random_state=RANDOM_STATE,
-        )),
+        ("classifier", DummyClassifier(strategy="most_frequent")),
     ])
     model.fit(X_train, y_train)
     predictions = model.predict(X_test)
@@ -84,3 +81,4 @@ def train_and_evaluate():
 
 if __name__ == "__main__":
     train_and_evaluate()
+
